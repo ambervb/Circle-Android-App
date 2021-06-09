@@ -4,12 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.se.omapi.Session;
 import android.view.View;
 
 import com.example.the_circle_android_b1.activities.CameraPreviewActivity;
 import com.example.the_circle_android_b1.activities.ChatActivity;
 
 public class MainActivity extends AppCompatActivity {
+    private Session mSession;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
