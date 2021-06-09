@@ -1,24 +1,45 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.CameraPreviewActivity">
+    tools:context=".MainActivity"
+    android:color="@android:color/background_light" >
+
+    <net.majorkernelpanic.streaming.gl.SurfaceView
+        android:id="@+id/surface"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/editText1" />
+
+    <LinearLayout
+        android:id="@+id/layout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true" >
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="text" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="text" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/textView"
-        android:padding="10px"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Activity page CameraPreview"
-        tools:layout_editor_absoluteX="138dp"
-        tools:layout_editor_absoluteY="269dp" />
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="mainScreenActivity"
-        android:text="Back"
-        android:layout_gravity="top|right"
-        />
-</LinearLayout>
+        android:layout_width="135dp"
+        android:layout_height="63dp"
+        android:text="Follower Count"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+</RelativeLayout>
