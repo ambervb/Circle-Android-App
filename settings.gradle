@@ -1,4 +1,3 @@
 rootProject.name = "the_circle_android_b1"
 include ':app'
 
-include ':libstreaming'

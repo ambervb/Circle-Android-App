@@ -5,11 +5,6 @@
     tools:context=".MainActivity"
     android:color="@android:color/background_light" >
 
-    <net.majorkernelpanic.streaming.gl.SurfaceView
-        android:id="@+id/surface"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/editText1" />
 
     <LinearLayout
         android:id="@+id/layout1"
