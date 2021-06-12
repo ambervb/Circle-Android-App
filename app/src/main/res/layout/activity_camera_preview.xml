@@ -10,7 +10,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <SurfaceView
+        <com.pedro.rtplibrary.view.OpenGlView
             android:id="@+id/surfaceView"
             android:layout_width="match_parent"
             android:layout_height="538dp" />
@@ -20,16 +20,16 @@
             android:layout_height="match_parent">
 
             <Button
-                android:id="@+id/buttonStart"
+                android:id="@+id/buttonRecord"
                 android:layout_width="194dp"
                 android:layout_height="90dp"
-                android:text="Button" />
+                android:text="@string/record_button" />
 
             <Button
-                android:id="@+id/button4"
+                android:id="@+id/buttonSwitch"
                 android:layout_width="221dp"
                 android:layout_height="90dp"
-                android:text="Button" />
+                android:text="@string/pause_button" />
         </LinearLayout>
 
     </LinearLayout>
