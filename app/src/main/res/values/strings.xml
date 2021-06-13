@@ -13,4 +13,5 @@
     <string name="pause_button">Pause/play</string>
     <string name="switch_button">Switch Camera</string>
     <string name="record_button">Record</string>
+    <string name="follower_count">Follower Count</string>
 </resources>

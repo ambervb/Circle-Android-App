@@ -19,117 +19,29 @@ import com.pedro.rtplibrary.rtmp.RtmpCamera1;
 
 import net.ossrs.rtmp.ConnectCheckerRtmp;
 
-public class MainActivity extends AppCompatActivity implements ConnectCheckerRtmp, SurfaceHolder.Callback {
+public class MainActivity extends AppCompatActivity {
     private RtmpCamera1 rtmpCamera1;
     private Button button;
     private SurfaceView surfaceView;
 
-    Intent cameraIntent;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //TODO add ui to go to camera
-        cameraIntent = new Intent(this, CameraActivity.class);
+        //TODO add main screen ui to go to camera, profile etc
+        cameraActivity();
+
+
+    }
+
+    public void cameraActivity(){
+        Intent cameraIntent = new Intent(this, CameraActivity.class);
         startActivity(cameraIntent);
-
-        surfaceView = findViewById(R.id.surfaceView);
-//        rtmpCamera1 = new RtmpCamera1(surfaceView, this);
-//        surfaceView.getHolder().addCallback(this);
     }
 
-    public void onConnectionStartedRtmp(String rtmpUrl) {
-    }
-
-    @Override
-    public void onConnectionSuccessRtmp() {
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                Toast.makeText(MainActivity.this, "Connection success", Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-
-    @Override
-    public void onConnectionFailedRtmp(final String reason) {
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                if (rtmpCamera1.reTry(5000, "reason")) {
-                    Toast.makeText(MainActivity.this, "Retry", Toast.LENGTH_SHORT)
-                            .show();
-                } else {
-                    Toast.makeText(MainActivity.this, "Connection failed. " + reason, Toast.LENGTH_SHORT)
-                            .show();
-                    rtmpCamera1.stopStream();
-
-                }
-            }
-        });
-    }
-
-
-    @Override
-    public void onNewBitrateRtmp(long bitrate) {
-
-    }
-
-    @Override
-    public void onDisconnectRtmp() {
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                Toast.makeText(MainActivity.this, "Disconnected", Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-
-
-    @Override
-    public void onAuthErrorRtmp() {
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                Toast.makeText(MainActivity.this, "Auth error", Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-
-    @Override
-    public void onAuthSuccessRtmp() {
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                Toast.makeText(MainActivity.this, "Auth success", Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-
-
-
-    @Override
-    public void surfaceCreated(SurfaceHolder surfaceHolder) {
-
-    }
-
-    @Override
-    public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int i1, int i2) {
-        rtmpCamera1.startPreview(CameraHelper.Facing.BACK);
-    }
-    public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
-
-        rtmpCamera1.stopPreview();
-    }
-
-
-
-    public void cameraPreviewActivity(View view){
-        Intent intent = new Intent(MainActivity.this, CameraPreviewActivity.class);
-        startActivity(intent);
-    }
     public void chatActivity(View view){
         Intent intent = new Intent(MainActivity.this, ChatActivity.class);
         startActivity(intent);

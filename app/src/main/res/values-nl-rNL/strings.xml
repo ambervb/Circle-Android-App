@@ -4,4 +4,5 @@
     <string name="pause_button">Pauze/start</string>
     <string name="switch_button">Draai Camera</string>
     <string name="record_button">Neem op</string>
+    <string name="follower_count">Aantal Volgers</string>
 </resources>

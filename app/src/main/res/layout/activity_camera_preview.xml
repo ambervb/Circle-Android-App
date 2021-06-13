@@ -6,6 +6,13 @@
     tools:context=".MainActivity"
     android:color="@android:color/background_light" >
 
+    <TextView
+        android:id="@+id/tvFollowerCount"
+        android:layout_width="134dp"
+        android:layout_height="55dp"
+        android:text="@string/follower_count"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -35,6 +42,7 @@
                 android:layout_height="90dp"
                 android:backgroundTint="#8C9EFF"
                 android:text="@string/switch_button" />
+
         </LinearLayout>
 
     </LinearLayout>
