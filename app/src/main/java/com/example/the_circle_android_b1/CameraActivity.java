@@ -14,19 +14,20 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.pedro.encoder.input.video.CameraOpenException;
 import com.pedro.rtplibrary.rtmp.RtmpCamera2;
 import com.pedro.rtplibrary.view.OpenGlView;
 
 import net.ossrs.rtmp.ConnectCheckerRtmp;
 
 
-public class CameraActivity extends AppCompatActivity implements ConnectCheckerRtmp, SurfaceHolder.Callback, View.OnClickListener,  View.OnTouchListener{
+public class CameraActivity extends AppCompatActivity implements ConnectCheckerRtmp, SurfaceHolder.Callback, View.OnClickListener{
 
     private RtmpCamera2 rtmpCamera2;
     private Button recordButton;
     private Button switchButton;
     private OpenGlView surfaceGL;
-
+    private String streamUrl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,10 +37,12 @@ public class CameraActivity extends AppCompatActivity implements ConnectCheckerR
 
             recordButton = findViewById(R.id.buttonRecord);
             switchButton = findViewById(R.id.buttonSwitch);
-
-
             surfaceGL = findViewById(R.id.surfaceView);
 
+            //TODO Change to real url when available
+            //Give url for server to connect to. 1935 is port for rtmp
+            //streamUrl = "rtmp://1159.65.202.252:1935/live/ANDROID";
+            streamUrl = "rtmp://192.168.178.13:1935/live/ANDROID";
 
             rtmpCamera2 = new RtmpCamera2(surfaceGL, this);
 
@@ -47,12 +50,37 @@ public class CameraActivity extends AppCompatActivity implements ConnectCheckerR
             switchButton.setOnClickListener(this);
 
             surfaceGL.getHolder().addCallback(this);
-            surfaceGL.setOnTouchListener(this);
-
-
-
-
         }
+
+
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.buttonRecord:
+                if (!rtmpCamera2.isStreaming()) {
+
+                    //TODO apply more specific params for video bitrate, fps etc if necessary
+                    if (rtmpCamera2.prepareAudio() && rtmpCamera2.prepareVideo()) {
+                        recordButton.setText("NOW RECORDING");
+                        rtmpCamera2.startStream(streamUrl);
+                    } else {
+                        Toast.makeText(this, "Error preparing stream, This device cant do it",
+                                Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    recordButton.setText(R.string.record_button);
+                    rtmpCamera2.stopStream();
+                }
+                break;
+
+            case R.id.buttonSwitch:
+                try {
+                    rtmpCamera2.switchCamera();
+                } catch (CameraOpenException e) {
+                    Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+                break;
+        }
+    }
 
 
     @Override
@@ -128,16 +156,8 @@ public class CameraActivity extends AppCompatActivity implements ConnectCheckerR
         });
     }
 
-    @Override
-    public void onClick(View v) {
-         Toast.makeText(CameraActivity.this, "clicked", Toast.LENGTH_LONG).show();
-    }
 
-    @Override
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-        //later
-        return true;
-    }
+
 
 
 }
