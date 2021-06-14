@@ -20,9 +20,7 @@ import com.pedro.rtplibrary.rtmp.RtmpCamera1;
 import net.ossrs.rtmp.ConnectCheckerRtmp;
 
 public class MainActivity extends AppCompatActivity {
-    private RtmpCamera1 rtmpCamera1;
-    private Button button;
-    private SurfaceView surfaceView;
+
 
 
 
