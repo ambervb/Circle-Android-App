@@ -41,8 +41,8 @@ public class CameraActivity extends AppCompatActivity implements ConnectCheckerR
 
             //TODO Change to real url when available
             //Give url for server to connect to. 1935 is port for rtmp
-            //streamUrl = "rtmp://1159.65.202.252:1935/live/ANDROID";
-            streamUrl = "rtmp://192.168.178.13:1935/live/ANDROID";
+            streamUrl = "rtmp://159.65.202.252:1935/live/androidmaybefix";
+//            streamUrl = "rtmp://192.168.178.13:1935/live/ANDROID";
 
             rtmpCamera2 = new RtmpCamera2(surfaceGL, this);
 
@@ -59,7 +59,7 @@ public class CameraActivity extends AppCompatActivity implements ConnectCheckerR
                 if (!rtmpCamera2.isStreaming()) {
 
                     //TODO apply more specific params for video bitrate, fps etc if necessary
-                    if (rtmpCamera2.prepareAudio() && rtmpCamera2.prepareVideo()) {
+                    if (rtmpCamera2.prepareAudio() && rtmpCamera2.prepareVideo(720, 1280, 1200 * 1024)) {
                         recordButton.setText("NOW RECORDING");
                         rtmpCamera2.startStream(streamUrl);
                     } else {
