@@ -77,7 +77,7 @@ public class CameraActivity extends AppCompatActivity implements ConnectCheckerR
         }
     }
 
-
+//
     @Override
     public void surfaceCreated(@NonNull SurfaceHolder holder) {
         //later
