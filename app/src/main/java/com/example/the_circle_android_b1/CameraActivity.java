@@ -63,7 +63,7 @@ public class CameraActivity extends AppCompatActivity implements ConnectCheckerR
                     int cRotation = CameraHelper.getCameraOrientation(this);
                     //TODO apply more specific params for video bitrate, fps etc if necessary
                     //TODO remove audio if necessary
-                    if (rtmpCamera2.prepareAudio(64 * 1024, 48000, true, false, false) && rtmpCamera2.prepareVideo(720, 1280, 30, 1331200, cRotation, cRotation, 1, 1 )) {
+                    if (rtmpCamera2.prepareVideo(720, 1280, 30, 1331200, cRotation, cRotation, 1, 1 )) {
                         recordButton.setText("NOW RECORDING");
                         rtmpCamera2.startStream(streamUrl);
                     } else {
