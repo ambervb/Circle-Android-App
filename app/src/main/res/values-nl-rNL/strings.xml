@@ -3,6 +3,8 @@
     <string name="app_name">"The Circle "</string>
     <string name="pause_button">Pauze/start</string>
     <string name="switch_button">Draai Camera</string>
-    <string name="record_button">Neem op</string>
+    <string name="record_button">Opnemen</string>
     <string name="follower_count">Aantal Volgers</string>
+    <string name="record_on">Opnemen</string>
+    <string name="tv_coin">Aantal Coin</string>
 </resources>

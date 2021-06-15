@@ -14,4 +14,6 @@
     <string name="switch_button">Switch Camera</string>
     <string name="record_button">Record</string>
     <string name="follower_count">Follower Count</string>
+    <string name="tv_coin">Coin amount</string>
+    <string name="record_on">IS RECORDING</string>
 </resources>
