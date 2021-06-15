@@ -1,0 +1,50 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:color="@android:color/background_light" >
+
+    <TextView
+        android:id="@+id/tvFollowerCount"
+        android:layout_width="134dp"
+        android:layout_height="55dp"
+        android:text="@string/follower_count"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.pedro.rtplibrary.view.OpenGlView
+            android:id="@+id/surfaceView"
+            android:layout_width="match_parent"
+            android:layout_height="538dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/buttonRecord"
+                android:layout_width="194dp"
+                android:layout_height="90dp"
+                android:backgroundTint="#82B1FF"
+                android:text="@string/record_button"
+                app:icon="@android:drawable/ic_menu_camera"
+                app:iconTint="@color/white" />
+
+            <Button
+                android:id="@+id/buttonSwitch"
+                android:layout_width="221dp"
+                android:layout_height="95dp"
+                android:backgroundTint="#8C9EFF"
+                android:text="@string/switch_button" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
