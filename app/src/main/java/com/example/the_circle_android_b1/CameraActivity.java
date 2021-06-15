@@ -1,24 +1,17 @@
 package com.example.the_circle_android_b1;
 
-import android.annotation.SuppressLint;
-
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-
 import com.pedro.encoder.input.video.CameraHelper;
 import com.pedro.encoder.input.video.CameraOpenException;
 import com.pedro.rtplibrary.rtmp.RtmpCamera2;
 import com.pedro.rtplibrary.view.OpenGlView;
-
 import net.ossrs.rtmp.ConnectCheckerRtmp;
 
 
@@ -41,11 +34,11 @@ public class CameraActivity extends AppCompatActivity implements ConnectCheckerR
             surfaceGL = findViewById(R.id.surfaceView);
 
             //TODO Change to real url when available
- //         Give url for server to connect to. 1935 is port for rtmp
+//          Give url for server to connect to. 1935 is port for rtmp
 //          remote:
 //          streamUrl = "rtmp://159.65.202.252:1935/live/test";
-            //local:
-             streamUrl = "rtmp://192.168.178.13:1935/live/test";
+//          local:
+            streamUrl = "rtmp://192.168.178.13:1935/live/test";
 
             rtmpCamera2 = new RtmpCamera2(surfaceGL, this);
 
@@ -61,8 +54,6 @@ public class CameraActivity extends AppCompatActivity implements ConnectCheckerR
             case R.id.buttonRecord:
                 if (!rtmpCamera2.isStreaming()) {
                     int cRotation = CameraHelper.getCameraOrientation(this);
-                    //TODO apply more specific params for video bitrate, fps etc if necessary
-                    //TODO remove audio if necessary
                     if (rtmpCamera2.prepareVideo(720, 1280, 30, 1331200, cRotation, cRotation, 1, 1 )) {
                         recordButton.setText("NOW RECORDING");
                         rtmpCamera2.startStream(streamUrl);

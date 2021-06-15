@@ -1,28 +1,13 @@
 package com.example.the_circle_android_b1;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-
-import android.view.SurfaceHolder;
-import android.view.SurfaceView;
 import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
 
-
-import com.example.the_circle_android_b1.activities.CameraPreviewActivity;
-import com.example.the_circle_android_b1.activities.ChatActivity;
-import com.pedro.encoder.input.video.CameraHelper;
-import com.pedro.rtplibrary.rtmp.RtmpCamera1;
-
-import net.ossrs.rtmp.ConnectCheckerRtmp;
 
 public class MainActivity extends AppCompatActivity {
-
-
-
+    //NB: Give camera permissions manually for testing, feature will be added later
 
     @Override
     protected void onCreate(Bundle savedInstanceState)  {
@@ -32,7 +17,6 @@ public class MainActivity extends AppCompatActivity {
         //TODO add main screen ui to go to camera, profile etc
         cameraActivity();
 
-
     }
 
     public void cameraActivity(){
@@ -41,8 +25,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void chatActivity(View view){
-        Intent intent = new Intent(MainActivity.this, ChatActivity.class);
-        startActivity(intent);
+
     }
 
 }
